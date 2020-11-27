@@ -1,0 +1,6 @@
+{
+    "extends": ["nextjs"],
+    "rules": {
+        "no-console": 0
+    }
+}
