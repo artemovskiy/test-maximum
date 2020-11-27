@@ -1,7 +1,7 @@
 import React, {useReducer, useState, useEffect, useRef} from 'react'
 import CleanForm from "../components/CleanForm";
 import {CleanerService} from "../lib/cleaner/cleaner-service";
-import debounce from "../utils/debounce";
+import throttle from "../utils/throttle";
 import Head from 'next/head';
 
 const reducer = (state, action) => {
@@ -59,7 +59,7 @@ const getData = (query) =>
         .then(handleResponseError)
         .then(r => r.json())
 
-const callback = debounce(async (query, dispatch) => {
+const callback = throttle(async (query, dispatch) => {
         dispatch({
             type: 'LOAD_DATA'
         })
